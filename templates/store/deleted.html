@@ -1,0 +1,32 @@
+{% extends './partials/main.html' %}
+{% load static %}
+{% block content %}
+<h4>Deleted products</h4>
+<!-- {{pro}} -->
+<hr>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th>Deleted Date</th>
+        <th>Deleted By</th>
+    </thead>
+    <tbody>
+        {% for p in product %}
+        <tr>
+            <td>{{p.Name}}</td>
+            <td>{{p.Price}}</td>
+            <td>{{p.Quantity}}</td>
+            <td>{{p.Total_Price}}</td>
+            <td>{{p.Deleted_Date}}</td>
+            <td>{{p.Deleted_By}}</td>
+        </tr>
+        {% empty %}
+        <h3> Nothing to display.</h3>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

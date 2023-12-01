@@ -1,0 +1,36 @@
+{% extends './partials/main.html' %}
+{% load static %}
+{% block content%}
+
+<h4> Update Product: {{item.Name}}</h4>
+<hr>
+
+<form action="{% url 'update-product' item.id %}" method="POST">
+    {% csrf_token %}
+    <table>
+        <tbody>
+            <tr>
+                <td><b><label for="name">Product Name:</label></b></td>
+                <td><input type="text" value="{{item.Name}}" name="name"></td>
+            </tr>
+
+            <tr>
+                <td><b><label for="price">Price:</label></b></td>
+                <td><input type="number" value="{{item.Price}}" name="price"></td>
+            </tr>
+            <tr>
+                <td><b><label for="quantity">Quantity:</label></b></td>
+                <td><input type="number" value="{{item.Quantity}}" name="quantity"></td>
+            </tr>
+        </tbody>
+
+
+
+
+    </table>
+    <input class="btn btn-outline-success" type="submit" value="Update">
+
+
+</form>
+
+{% endblock content%}

@@ -1,0 +1,35 @@
+{% extends './partials/main.html' %}
+{% load static %}
+{% block content %}
+
+<h3>Sell Item    </h3>
+<!-- 
+<div class="search">
+    
+    <input type="text" name="searchtxt",  placeholder="Search here"  value="" >
+    <input type="submit", value="Search" name="search">
+    
+</div> -->
+<hr>
+<div >
+    <form action="/sell/" method="POST">
+        {% csrf_token %}
+        <table>
+            <tbody>
+                
+            </tbody>
+            {{form.as_table}}
+            
+        </table>
+       
+    <input class="btn btn-primary" type="submit" value="Submit">
+        
+        
+    </form>
+</div>
+{% if message %}
+<h3>{{message}}</h3>
+{% endif %}
+
+
+{% endblock content %}

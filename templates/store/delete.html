@@ -1,0 +1,15 @@
+{% extends './partials/main.html' %}
+{% load static %}
+{% block content %}
+
+<hr>
+<form action="" method="POST">
+    {% csrf_token %}
+    <h3>Are you sure to delete this item?</h3>
+    <br>
+    <input class="btn btn-danger" type="submit" value="Delete">
+    <button type="button" class="btn btn-secondary"><a class="nav-link" href="{% url 'index' %}">Cancel</a></button>
+</form>
+<hr>
+
+{% endblock content %}

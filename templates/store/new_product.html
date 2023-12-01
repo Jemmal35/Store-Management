@@ -1,0 +1,18 @@
+{% extends './partials/main.html' %}
+{% load static %}
+{% block content %}
+
+<h4>Add new products</h>
+<hr>
+<form action="/new/" method="POST">
+    {% csrf_token %}
+    <table style="font-size: 18px;">
+        <tbody>
+            {{form}}
+        </tbody>
+        
+    </table>
+    
+    <input class="btn btn-success" type="submit" value="Register">
+</form>
+{% endblock content %}

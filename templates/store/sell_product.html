@@ -1,0 +1,59 @@
+{% extends './partials/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-8 header-wrapper">
+    <button type="button" class="btn btn-outline-dark"><a class="nav-link" href="{% url 'index' %}">  &#x2190; Back</a></button>
+       
+    </div>
+    
+    <div class="col-4">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark btn-sm" type="submit">Search</button>
+    
+          </form>
+    </div>
+</div>
+<hr>
+<h4>Selected item for sale:</h4>
+<hr>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class="table-dark">
+            <th>Product Name</th>
+            <th>Price for #1</th>
+            <th>Available Quantity</th>
+
+        </thead>
+
+        <tbody>
+            {% for it in item %}
+            <tr>
+                <td>{{it.Name}}</td>
+                <td>{{it.Price}}</td>
+                <td>{{it.Quantity}}</td>
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<hr>
+<h5>Enter # of item/'s to be sold:</h5>
+<br>
+<div class="col-4">
+    <form class="d-flex" method="POST" action="">
+        {% csrf_token %}
+        <input class="form-control me-2" type="number" placeholder="Enter # of item" aria-label="Quantity" name="quant" min="1 ">
+        <button class="btn btn-outline-success btn-sm" type="submit">Sell</button>
+
+      </form>
+</div>
+
+{% endblock content %}
